@@ -9,7 +9,7 @@
     <header>
       <nav>
         <ol>
-          <li class="how">How it works</li>
+          <li><a href=# class="how">How it works</a></li>
         </ol>
       </nav>
     </header>
@@ -18,6 +18,17 @@
       placeholder="Enter card number"/><br>
       <button id="checker">Check</button>
       <h2 class="result">It's a valid <span class="model"></span> card</h2>
+      <section class="works">
+        <p>This validator is based on Luhn algorithm.<br>For example, This makes the full account number 79927398713.<br></p>
+        <ol>
+          <li>Double every second digit, from the rightmost: <span>(1×2) = 2, (8×2) = 16, (3×2) = 6, (2×2) = 4, (9×2) = 18</span></li>
+          <li>Sum all the individual digits (digits in parentheses are the products from Step 1): <br>
+            <span>x (the check digit) + (2) + 7 + (1+6) + 9 + (6) + 7 + (4) + 9 + (1+8) + 7 = x + 67.</span></li>
+          <li>If the sum is a multiple of 10, the account number is possibly valid. Note that 3 is the only valid digit that produces a sum (70) that is a multiple of 10.</li>
+          <li>Thus these account numbers are all invalid except possibly 79927398713 which has the correct check digit.</li>
+        </ol>
+        <p>Visit this link for more information about <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn Algorithm</a></p>
+      </section>
     </main>
     <footer>
       Made with <span>&#x1F498;</span> by karthicbz
@@ -30,7 +41,9 @@
       let model = document.querySelector('.model');
       let result = document.querySelector('.result');
       let how = document.querySelector('.how');
+      let works = document.querySelector('.works');
       result.style.display = 'none';
+      works.style.display = 'none';
 
       function validateCard(number){
         let secondDigit = 0;
@@ -53,6 +66,8 @@
             model.textContent = 'Visa';
             }else if(number[0] == 5){
                 model.textContent = 'Master';
+            }else{
+              model.textContent = 'Credit/Debit';
             }
         }else{
             result.textContent = 'It\'s a Invalid card number';
@@ -76,9 +91,11 @@
 
       how.addEventListener('click',()=>{
           if(how.textContent == 'How it works'){
+            works.style.display = 'block';
             how.textContent = 'Close';
           }else{
               how.textContent = 'How it works';
+              works.style.display='none';
           }
         //   if(how.textContent == 'Close'){
         //       how.textContent = 'How it works'

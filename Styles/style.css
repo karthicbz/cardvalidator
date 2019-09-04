@@ -9,22 +9,26 @@ body{
     margin: 0 auto;
     height: 500px;
     border-radius: 5px;
+    position: relative;
   }
   
   nav{
      float: right;
   }
 
-  ol{
+  nav ol{
       list-style-type: none;
   }
 
-  li{
-      margin: 10px;
+  nav a{
+      display: inline-block;
+      margin-right: 10px;
       border: 2px solid #F4D35E;
       padding: 10px;
       color: #F6D8AE;
       border-radius: 5px;
+      text-decoration: none;
+      outline-style: none;
   }
   
   header:after{
@@ -68,6 +72,10 @@ body{
       border-radius: 5px;
   }
 
+  .works{
+    width: 500px;
+  }
+
   footer{
       color: #F6D8AE;
       position: fixed;
@@ -75,4 +83,19 @@ body{
       text-align: center;
       width: 800px;
       margin: 10px;
+  }
+
+  main .works{
+    text-align: left;
+    background: #F4D35E;
+    padding: 15px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+  }
+
+  main span{
+    background: #F6D8AE;
+    padding: 0 5px;
   }
