@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Card Validator</title>
+    <link rel="stylesheet" href="./Styles/style.css">
+  </head>
+  <body>
+    <section class="container">
+    <header>
+      <nav>
+        <ol>
+          <li class="how">How it works</li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <input type='text' name='cardValidator' id="cardValidator"
+      placeholder="Enter card number"/><br>
+      <button id="checker">Check</button>
+      <h2 class="result">It's a valid <span class="model"></span> card</h2>
+    </main>
+    <footer>
+      Made with <span>&#x1F498;</span> by karthicbz
+    </footer>
+    </section>
+  </body>
+  <script>
+      let cardNumber = document.querySelector('#cardValidator');
+      let validator = document.querySelector('#checker');
+      let model = document.querySelector('.model');
+      let result = document.querySelector('.result');
+      let how = document.querySelector('.how');
+      result.style.display = 'none';
+
+      function validateCard(number){
+        let secondDigit = 0;
+        let thirdDigit = 0;
+        for(let i=0; i<number.length; i+=2){
+            let sqrNumber = number[i]*2;
+            if(String(sqrNumber).length === 2){
+                let addNumber = Number(String(sqrNumber)[0]) + Number(String(sqrNumber)[1]);
+                secondDigit += addNumber; 
+            }else{
+                secondDigit += sqrNumber;
+            }
+        }
+        for(let i=1; i<number.length; i+=2){
+            thirdDigit += +number[i];
+        }
+        // console.log(secondDigit + thirdDigit);
+        if((secondDigit+thirdDigit)%10 === 0){
+            if(number[0] == 4){
+            model.textContent = 'Visa';
+            }else if(number[0] == 5){
+                model.textContent = 'Master';
+            }
+        }else{
+            result.textContent = 'It\'s a Invalid card number';
+        }
+      }
+
+      validator.addEventListener('click', ()=>{
+          if(validator.textContent == 'Check'){
+            if(cardNumber.value !== ''){
+                validator.textContent = 'Clear';
+                validateCard(cardNumber.value);
+                result.style.display = 'block';
+            }
+          }else{
+            validator.textContent = 'Check';
+            cardNumber.value = '';
+            result.style.display = 'none';
+          }
+        // result.style.display = 'block';
+      });
+
+      how.addEventListener('click',()=>{
+          if(how.textContent == 'How it works'){
+            how.textContent = 'Close';
+          }else{
+              how.textContent = 'How it works';
+          }
+        //   if(how.textContent == 'Close'){
+        //       how.textContent = 'How it works'
+        //   }
+      });
+  </script>
+</html>

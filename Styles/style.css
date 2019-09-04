@@ -1,0 +1,78 @@
+body{
+    background: #2E4057;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container{
+    max-width: 800px;
+    background: #083D77;
+    margin: 0 auto;
+    height: 500px;
+    border-radius: 5px;
+  }
+  
+  nav{
+     float: right;
+  }
+
+  ol{
+      list-style-type: none;
+  }
+
+  li{
+      margin: 10px;
+      border: 2px solid #F4D35E;
+      padding: 10px;
+      color: #F6D8AE;
+      border-radius: 5px;
+  }
+  
+  header:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  main{
+    text-align:center;
+    margin: 15% auto 0;
+  }
+  
+  #cardValidator{
+    width:50%;
+    height: 30px;
+    outline-color: #DA4167;
+    font-size: 25px;
+    letter-spacing: 5px;
+    text-align: center;
+  }
+  
+  main button{
+    margin: 10px;
+    width: 85px;
+    height: 45px;
+    background-color: #F4D35E;
+    border-style: none;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+
+  main h2{
+      color: #F4D35E;
+  }
+
+  h2 span.model{
+      color: #DA4167;
+      border: 2px solid #F4D35E;
+      padding: 5px;
+      border-radius: 5px;
+  }
+
+  footer{
+      color: #F6D8AE;
+      position: fixed;
+      bottom: 0;
+      text-align: center;
+      width: 800px;
+      margin: 10px;
+  }
